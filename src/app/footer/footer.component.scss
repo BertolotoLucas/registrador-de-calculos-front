@@ -5,7 +5,11 @@ div{
 .icon{
     text-decoration: none;
     color: #6c757d;
-    transition: color 0.80s;
+    transition: all 0.80s;
+}
+
+.icon:hover {
+   font-size: 1.35em;
 }
 
 .linkedinIcon:hover {
