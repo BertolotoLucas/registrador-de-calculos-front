@@ -1,13 +1,11 @@
 <div class="container">
 <form>
-    <div class="form-group">
-      <mat-form-field appearance="fill" [floatLabel]="floatLabelControl.value">
-        <mat-label for="name">Nome</mat-label>
-        <input matInput type="text" id="name" aria-describedby="nameHelp" placeholder="Insira seu nome" required>
-      </mat-form-field>
-    </div>
-    <button type="submit" class="btn btn-primary">Enviar</button>
-    <button mat-raised-button color="primary">Primary</button>
+  <div class="form-group">
+    <label for="inputName">Nome</label>
+    <input [(ngModel)]="name" name="name" type="text" class="form-control" id="inputName" aria-describedby="nameHelp" placeholder="José Batista" required>
+    <small id="nameHelp" class="form-text text-muted">É apenas para registrar, não se preocupe</small>
+  </div>
+    <button [disabled]="!name" type="button" class="btn btn-primary" (click)="registerName('/calculadora')">Enviar</button>
 </form>
 </div>
   
