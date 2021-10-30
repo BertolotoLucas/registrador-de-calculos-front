@@ -12,14 +12,14 @@ export class InputNameComponent implements OnInit {
   constructor(private router:Router) {}
   ngOnInit(): void {}  
 
-  registerName($page:string = ''): void {
+  registerName($page:string=''): void {
     const routes: string[] = [];
 
     if (this.name) {
       console.log(this.name)
       routes.push($page);
-      //this.router.navigate(routes);
-      this.reloadComponent();
+      this.router.navigate(routes);
+      //this.reloadComponent();
     }
   }
   reloadComponent() {
