@@ -10,19 +10,19 @@
       
         <div class="form-row">
           <div class="form-col">
-            <input type="text" class="form-control result" id="screen" >
+            <input [(ngModel)]="screenValue" name="screenValue" type="text" class="form-control screen" id="screen" disabled>
           </div>
         </div>
         
         <div class="form-row">
           <div class="form-col">
-            <button type="button" class="btn btn-outline-dark btn-num">7</button>
+            <button type="button" (click) = "addDigtToScreen($event)" class="btn btn-outline-dark btn-num">7</button>
           </div>
           <div class="form-col">
-            <button type="button" class="btn btn-outline-dark btn-num">8</button>
+            <button type="button" (click) = "addDigtToScreen($event)" class="btn btn-outline-dark btn-num">8</button>
           </div>
           <div class="form-col">
-            <button type="button" class="btn btn-outline-dark btn-num">9</button>
+            <button type="button" (click) = "addDigtToScreen($event)" class="btn btn-outline-dark btn-num">9</button>
           </div>
           <div class="form-col">
             <button type="button" class="btn btn-outline-dark btn-ce">CE</button>
@@ -31,13 +31,13 @@
 
         <div class="form-row">
           <div class="form-col">
-            <button type="button" class="btn btn-outline-dark btn-num">4</button>
+            <button type="button" (click) = "addDigtToScreen($event)" class="btn btn-outline-dark btn-num">4</button>
           </div>
           <div class="form-col">
-            <button type="button" class="btn btn-outline-dark btn-num">5</button>
+            <button type="button" (click) = "addDigtToScreen($event)" class="btn btn-outline-dark btn-num">5</button>
           </div>
           <div class="form-col">
-            <button type="button" class="btn btn-outline-dark btn-num">6</button>
+            <button type="button" (click) = "addDigtToScreen($event)" class="btn btn-outline-dark btn-num">6</button>
           </div>
           <div class="form-col">
             <button type="button" class="btn btn-outline-dark btn-plus">+</button>
@@ -46,13 +46,13 @@
 
         <div class="form-row">
           <div class="form-col">
-            <button type="button" class="btn btn-outline-dark btn-num">1</button>
+            <button type="button" (click) = "addDigtToScreen($event)" class="btn btn-outline-dark btn-num">1</button>
           </div>
           <div class="form-col">
-            <button type="button" class="btn btn-outline-dark btn-num">2</button>
+            <button type="button" (click) = "addDigtToScreen($event)" class="btn btn-outline-dark btn-num">2</button>
           </div>
           <div class="form-col">
-            <button type="button" class="btn btn-outline-dark btn-num">3</button>
+            <button type="button" (click) = "addDigtToScreen($event)" class="btn btn-outline-dark btn-num">3</button>
           </div>
           <div class="form-col">
             <button type="button" class="btn btn-outline-dark btn-minus">-</button>
@@ -61,10 +61,10 @@
 
         <div class="form-row">
           <div class="form-col">
-            <button type="button" class="btn btn-outline-dark btn-dualzeros">00</button>
+            <button type="button" (click) = "addDigtToScreen($event)" class="btn btn-outline-dark btn-dualzeros">00</button>
           </div>
           <div class="form-col">
-            <button type="button" class="btn btn-outline-dark btn-num">0</button>
+            <button type="button" (click) = "addDigtToScreen($event)" class="btn btn-outline-dark btn-num">0</button>
           </div>
           <div class="form-col">
             <button type="button" class="btn btn-outline-dark btn-dot">.</button>
