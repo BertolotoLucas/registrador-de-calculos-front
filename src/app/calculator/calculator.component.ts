@@ -23,4 +23,13 @@ export class CalculatorComponent implements OnInit {
       this.screenValue = '';
   }
 
+  addDotToScreen(){
+    if(this.screenValue.length>0){
+      if(!this.screenValue.includes('.'))
+        this.screenValue = this.screenValue.concat('.');
+    } else 
+        this.screenValue = this.screenValue.concat('0.');
+      
+  }
+
 }
