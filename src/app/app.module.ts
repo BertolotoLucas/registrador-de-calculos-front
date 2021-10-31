@@ -11,8 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { InputNameComponent } from './input-name/input-name.component';
-import { CalculadoraComponent } from './calculadora/calculadora.component';
-
+import { CalculatorComponent } from './calculator/calculator.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,7 @@ import { CalculadoraComponent } from './calculadora/calculadora.component';
     HeaderComponent,
     FooterComponent,
     InputNameComponent,
-    CalculadoraComponent
+    CalculatorComponent
   ],
   imports: [
     BrowserModule,

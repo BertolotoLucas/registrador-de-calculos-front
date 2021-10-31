@@ -1,0 +1,63 @@
+@font-face {
+  font-family: 'digital-7';
+  src: url('../fonts/Digital Numbers 400.ttf');
+}
+
+.container-main{
+    margin-top: 3em; 
+    margin-bottom: 3em;
+}
+label{
+  margin-bottom: 0;
+}
+.result{
+  background-color: gray;
+  text-align: right;
+  font-family: 'digital-7';
+  font-style: black;
+}
+.form-row{
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.btn{
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+}
+
+.btn-num{
+  padding-left: 12.2px;
+  padding-right: 12.2px;
+}
+
+.btn-ce{
+  padding-left: 7.5px;
+  padding-right: 7.5px;
+}
+
+.btn-plus{
+  padding-left: 11px;
+  padding-right: 11px;
+}
+
+.btn-minus{
+  padding-left: 13.3px;
+  padding-right: 13.3px;
+}
+
+.btn-dualzeros{
+  padding-left: 7.875px;
+  padding-right: 7.875px;
+}
+
+.btn-dot{
+  padding-left: 14.766px;
+  padding-right: 14.766px;
+}
+
+.btn-equal{
+  padding-left: 11px;
+  padding-right: 11px;
+}
