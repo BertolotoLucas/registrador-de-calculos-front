@@ -18,4 +18,9 @@ export class CalculatorComponent implements OnInit {
     this.screenValue = this.screenValue.concat(this.buttonValue);
   }
 
+  clearTheScreen() {
+    if(this.screenValue)
+      this.screenValue = '';
+  }
+
 }
