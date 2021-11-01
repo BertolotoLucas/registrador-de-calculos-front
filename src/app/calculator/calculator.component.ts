@@ -5,11 +5,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calculator.component.scss']
 })
 export class CalculatorComponent implements OnInit {
-  screenValue = '';
+  screenValue = '0';
   buttonValue = '';
   operation = '';
   lastNumber = '';
-  canErasable = true;
+  canReplace = false;
 
   constructor() { }
 
@@ -17,17 +17,23 @@ export class CalculatorComponent implements OnInit {
   }
 
   addDigtToScreen(event: Event){
-    if(this.canErasable){
-      this.canErasable = false;
-      this.clearTheScreen();
-    }
     this.getButtonValue(event);
+    if (this.canReplace){
+      this.screenValue='0';
+      this.canReplace=false;
+    }
+    if (this.screenValue==='0'){
+      this.screenValue='';
+      if (this.buttonValue==='00')
+        this.buttonValue = '0';
+    }
     this.screenValue = this.screenValue.concat(this.buttonValue);
   }
 
   clearTheScreen() {
-    if(this.screenValue)
-      this.screenValue = '';
+    if(this.screenValue){
+      this.screenValue = '0';
+    }
   }
 
   addDotToScreen(){
@@ -56,14 +62,13 @@ export class CalculatorComponent implements OnInit {
           break; 
         } 
       }
-      this.canErasable = true;
+      this.canReplace=true;
     }
     console.log("operation: "+this.operation+", last number: "+this.lastNumber);
   }
 
   getResult(){
-    console.log(this.screenValue);
-    if (this.lastNumber && this.screenValue && this.operation){
+    if (this.lastNumber && this.screenValue && this.operation && !this.canReplace){
       console.log("sending to server: "+ this.operation
         + ", last number: "+this.lastNumber 
         +" screen value: " + this.screenValue );
@@ -84,6 +89,7 @@ export class CalculatorComponent implements OnInit {
         }
       }
       this.clearCalculator();
+      this.canReplace=true;
     }
   }
   
@@ -91,7 +97,6 @@ export class CalculatorComponent implements OnInit {
     this.buttonValue = '';
     this.operation = '';
     this.lastNumber = '';
-    this.canErasable = true;
   }
 
   private getButtonValue(event: Event) {
