@@ -33,15 +33,20 @@ export class CalculatorComponent implements OnInit {
   clearTheScreen() {
     if(this.screenValue){
       this.screenValue = '0';
+      this.canReplace = true;
     }
   }
 
   addDotToScreen(){
     if(this.screenValue.length>0){
-      if(!this.screenValue.includes('.'))
+      if(!this.screenValue.includes('.')){
         this.screenValue = this.screenValue.concat('.');
-    } else 
-        this.screenValue = this.screenValue.concat('0.');
+        this.canReplace = false;
+      }
+    } else{ 
+      this.screenValue = this.screenValue.concat('0.');
+      this.canReplace = false;
+    }
   }
   
   addOperation(event:Event){
