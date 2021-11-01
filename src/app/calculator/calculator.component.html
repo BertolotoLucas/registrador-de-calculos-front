@@ -40,7 +40,7 @@
             <button type="button" (click) = "addDigtToScreen($event)" class="btn btn-outline-dark btn-num">6</button>
           </div>
           <div class="form-col">
-            <button type="button" class="btn btn-outline-dark btn-plus">+</button>
+            <button type="button" (click) = "addOperation($event)" class="btn btn-outline-dark btn-plus">+</button>
           </div>
         </div>
 
@@ -55,7 +55,7 @@
             <button type="button" (click) = "addDigtToScreen($event)" class="btn btn-outline-dark btn-num">3</button>
           </div>
           <div class="form-col">
-            <button type="button" class="btn btn-outline-dark btn-minus">-</button>
+            <button type="button" (click) = "addOperation($event)" class="btn btn-outline-dark btn-minus">-</button>
           </div>
         </div>
 
@@ -70,7 +70,7 @@
             <button type="button" (click) = "addDotToScreen()" class="btn btn-outline-dark btn-dot">.</button>
           </div>
           <div class="form-col">
-            <button type="button" class="btn btn-outline-dark btn-equal">=</button>
+            <button type="button" (click) = "getResult()" class="btn btn-outline-dark btn-equal">=</button>
           </div>
         </div>
 
