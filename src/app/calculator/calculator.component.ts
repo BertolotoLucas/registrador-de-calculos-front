@@ -54,7 +54,8 @@ export class CalculatorComponent implements OnInit {
   }
   
   addOperation(event:Event){
-    if(this.screenValue){
+    if(this.screenValue)
+    if(!isNaN(Number(this.screenValue))){
       this.lastNumber = this.screenValue;
       this.getButtonValue(event);
       switch(this.buttonValue) { 
@@ -65,6 +66,14 @@ export class CalculatorComponent implements OnInit {
         case '-': { 
           this.operation = "minus"; 
           break; 
+        }
+        case '*': {
+          this.operation = "multiply";
+          break;
+        }
+        case '/': {
+          this.operation = "divide";
+          break;
         } 
         default: { 
           this.operation = ''; 
@@ -90,6 +99,18 @@ export class CalculatorComponent implements OnInit {
         }
         case 'minus':{
           this.screenValue = (x1-x2).toString();
+          break;
+        }
+        case 'multiply':{
+          this.screenValue = (x1*x2).toString();
+          break;
+        }
+        case 'divide':{
+          if (x2===0){
+            this.screenValue = "Error.";
+          } else {
+             this.screenValue = (x1/x2).toString();
+          }
           break;
         }
         default:{
