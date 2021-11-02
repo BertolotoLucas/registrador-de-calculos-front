@@ -40,7 +40,11 @@ export class CalculatorComponent implements OnInit {
   addDotToScreen(){
     if(this.screenValue.length>0){
       if(!this.screenValue.includes('.')){
-        this.screenValue = this.screenValue.concat('.');
+        if (this.canReplace) {
+          this.screenValue = '0.'
+        } else {
+          this.screenValue = this.screenValue.concat('.');
+        }
         this.canReplace = false;
       }
     } else{ 
