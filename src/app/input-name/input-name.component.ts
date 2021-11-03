@@ -8,17 +8,18 @@ import { Router } from '@angular/router';
 })
 export class InputNameComponent implements OnInit {
   public name: string | undefined;
+  public page = "calculator";
   
   constructor(private router:Router) {}
   ngOnInit(): void {}  
 
-  registerName($page:string=''): void {
+  registerName(name:string|undefined): void {
     const routes: string[] = [];
-
+    this.name = name;
     if (this.name) {
-      console.log(this.name)
-      routes.push($page);
-      this.router.navigate(routes);
+      routes.push(this.page);
+      this.router.navigate(routes,{state:{data:this.name}});
+
       //this.reloadComponent();
     }
   }

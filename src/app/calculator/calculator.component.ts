@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calculator.component.scss']
 })
 export class CalculatorComponent implements OnInit {
+  name = '';
   screenValue = '0';
   buttonValue = '';
   operation = '';
@@ -14,6 +15,8 @@ export class CalculatorComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.name = history.state.data;
+    console.log(this.name);
   }
 
   addDigtToScreen(event: Event){
