@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { InputNameComponent } from './input-name/input-name.component';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CalculatorComponent } from './calculator/calculator.component';
     BrowserAnimationsModule,
     MatIconModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

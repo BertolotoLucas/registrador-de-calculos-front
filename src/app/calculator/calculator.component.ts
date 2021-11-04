@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Calculo } from '../model/calculo';
+import { CalculoService } from '../service/calculo.service';
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
@@ -13,7 +14,7 @@ export class CalculatorComponent implements OnInit {
   lastNumber = '';
   canReplace = false;
 
-  constructor() { }
+  constructor(private calculoService:CalculoService) { }
 
   ngOnInit(): void {
     this.name = history.state.data;

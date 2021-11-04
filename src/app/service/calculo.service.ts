@@ -9,7 +9,7 @@ import { TagPlaceholder } from '@angular/compiler/src/i18n/i18n_ast';
   providedIn: 'root'
 })
 export class CalculoService {
-  private calculosURL = "localhost:8080/calculos";
+  private calculosURL = "http://localhost:8080/calculos";
 
   constructor(private httpClient:HttpClient) {}
 
