@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Calculo } from '../model/calculo';
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
@@ -16,7 +17,6 @@ export class CalculatorComponent implements OnInit {
 
   ngOnInit(): void {
     this.name = history.state.data;
-    console.log(this.name);
   }
 
   addDigtToScreen(event: Event){
@@ -93,6 +93,9 @@ export class CalculatorComponent implements OnInit {
       console.log("sending to server: "+ this.operation
         + ", last number: "+this.lastNumber 
         +" screen value: " + this.screenValue );
+      var calculo: Calculo = new Calculo();
+      calculo.setnomePessoa(this.name);
+      calculo.setoperacao(this.lastNumber+','+this.operation+','+this.screenValue);
       const x1 = Number(this.lastNumber);
       const x2 = Number(this.screenValue)
       switch(this.operation) {
@@ -121,6 +124,10 @@ export class CalculatorComponent implements OnInit {
           break;
         }
       }
+      calculo.setresultado(Number(this.screenValue))
+      let str = '';
+      str = JSON.stringify(calculo);
+      console.log(str);
       this.clearCalculator();
       this.canReplace=true;
     }
