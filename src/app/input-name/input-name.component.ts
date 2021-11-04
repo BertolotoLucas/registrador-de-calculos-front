@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Calculo } from '../model/calculo';
 
 @Component({
   selector: 'app-input-name',
@@ -11,7 +12,11 @@ export class InputNameComponent implements OnInit {
   public page = "calculator";
   
   constructor(private router:Router) {}
-  ngOnInit(): void {}  
+  ngOnInit(): void {
+    calculo: Calculo;
+    
+    
+  }  
 
   registerName(name:string|undefined): void {
     const routes: string[] = [];
