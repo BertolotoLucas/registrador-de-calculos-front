@@ -1,37 +1,36 @@
 export class Calculo {
-    _id?: string;
-    _nomePessoa?: string;
-    _operacao?: string;
-    _resultado?: number;
+    id?: string;
+    nomePessoa?: string;
+    operacao?: string;
+    resultado?: number;
 
     
-    public get id() : string|undefined {
-        return this._id;
+    public getid() : string|undefined {
+        return this.id;
     }
-    public set id(id : string|undefined) {
-        this._id = id;
+    public setid(id : string|undefined) {
+        this.id = id;
     }    
     
-    public get nomePessoa() : string|undefined {
-        return this._nomePessoa;
+    public getnomePessoa() : string|undefined {
+        return this.nomePessoa;
     }
-    public set nomePessoa(v : string|undefined) {
-        this._nomePessoa = v;
-    }
-    
-    public get operacao() : string|undefined {
-        return this._operacao;
-    }
-    public set operacao(v : string|undefined) {
-        this._operacao = v;
+    public setnomePessoa(nomePessoa : string|undefined) {
+        this.nomePessoa = nomePessoa;
     }
     
-    
-    public get resultado() : number|undefined {
-        return this._resultado;
+    public getoperacao() : string|undefined {
+        return this.operacao;
     }
-    public set resultado(v : number|undefined) {
-        this._resultado = v;
+    public setoperacao(operacao : string|undefined) {
+        this.operacao = operacao;
+    }   
+    
+    public getresultado() : number|undefined {
+        return this.resultado;
+    }
+    public setresultado(resultado : number|undefined) {
+        this.resultado = resultado;
     }
     
     
