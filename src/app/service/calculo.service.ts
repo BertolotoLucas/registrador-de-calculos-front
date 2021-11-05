@@ -24,7 +24,7 @@ export class CalculoService {
 
   addCalculo(calculo:Calculo) : Observable<Calculo> {
     return this.httpClient.post<Calculo>(this.calculosURL,calculo,this.httpOptions).pipe(
-      tap((newCalculo: Calculo) => console.log(`added calculo w/ id=${calculo.id}`)),
+      //tap((newCalculo: Calculo) => console.log(`added calculo w/ id=${newCalculo.id}`)),
       catchError(this.handleError<Calculo>("addCalculo"))
     );
   } 
