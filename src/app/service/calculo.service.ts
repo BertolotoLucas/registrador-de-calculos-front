@@ -3,13 +3,15 @@ import { Calculo } from '../model/calculo';
 import { Observable,of } from 'rxjs';
 import { catchError, tap, map} from 'rxjs/operators'
 import { HttpClient } from '@angular/common/http';
-import { TagPlaceholder } from '@angular/compiler/src/i18n/i18n_ast';
-
+import { HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class CalculoService {
   private calculosURL = "http://localhost:8080/calculos";
+  private httpOptions = {
+    headers: new HttpHeaders({'Content-Type' : 'application/json'}),
+  };
 
   constructor(private httpClient:HttpClient) {}
 
@@ -19,6 +21,13 @@ export class CalculoService {
       catchError(this.handleError<Calculo[]>("getCalculos",[]))
     ); 
   }
+
+  addCalculo(calculo:Calculo) : Observable<Calculo> {
+    return this.httpClient.post<Calculo>(this.calculosURL,calculo,this.httpOptions).pipe(
+      tap((newCalculo: Calculo) => console.log(`added calculo w/ id=${calculo.id}`)),
+      catchError(this.handleError<Calculo>("addCalculo"))
+    );
+  } 
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
