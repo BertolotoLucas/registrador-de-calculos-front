@@ -129,7 +129,7 @@ export class CalculatorComponent implements OnInit {
       // let str = '';
       // str = JSON.stringify(calculo);
       // console.log(str);
-      this.screenValue = calculo.getresultado()?.toString()||"";
+      this.screenValue = calculo.getresultado()?.toString()||"Error";
       this.clearCalculator();
       this.canReplace=true;
     }
