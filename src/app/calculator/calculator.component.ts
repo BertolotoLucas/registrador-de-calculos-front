@@ -44,11 +44,7 @@ export class CalculatorComponent implements OnInit {
         var i = Number(this.screenValue);
         i = i/100;
         this.screenValue = i.toString();
-      } else {
-        this.screenValue = "Error";
       }
-    } else {
-      this.screenValue = "Error";
     }
   }
 
