@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Calculo } from '../model/calculo';
 import { CalculoService } from '../service/calculo.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
@@ -144,4 +145,9 @@ export class CalculatorComponent implements OnInit {
   private getButtonValue(event: Event) {
     this.buttonValue = (event.target as HTMLInputElement).textContent || '';
   }
+
+  private goToList(){
+    
+  }
+
 }
