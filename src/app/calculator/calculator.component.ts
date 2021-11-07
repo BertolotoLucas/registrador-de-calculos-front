@@ -38,6 +38,20 @@ export class CalculatorComponent implements OnInit {
     this.screenValue = this.screenValue.concat(this.buttonValue);
   }
 
+  convertNumberToPorcent(){
+    if (this.screenValue) {
+      if (!isNaN(Number(this.screenValue))) {
+        var i = Number(this.screenValue);
+        i = i/100;
+        this.screenValue = i.toString();
+      } else {
+        this.screenValue = "Error";
+      }
+    } else {
+      this.screenValue = "Error";
+    }
+  }
+
   clearTheScreen() {
     if(this.screenValue){
       this.screenValue = '0';
