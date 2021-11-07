@@ -2,12 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Calculo } from '../model/calculo';
 import { CalculoService } from '../service/calculo.service';
 import { Router } from '@angular/router';
+import { faList } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.scss']
 })
 export class CalculatorComponent implements OnInit {
+  public page = "calculations";
+  faList = faList;
   name = '';
   screenValue = '0';
   buttonValue = '';
@@ -15,7 +18,7 @@ export class CalculatorComponent implements OnInit {
   lastNumber = '';
   canReplace = false;
 
-  constructor(private calculoService:CalculoService) { }
+  constructor(private calculoService:CalculoService, private router:Router) { }
 
   ngOnInit(): void {
     this.name = history.state.data;
@@ -146,8 +149,8 @@ export class CalculatorComponent implements OnInit {
     this.buttonValue = (event.target as HTMLInputElement).textContent || '';
   }
 
-  private goToList(){
-    
+  public goToList(){
+    this.router.navigate([this.page], {state: {data: this.name}});
   }
 
 }
