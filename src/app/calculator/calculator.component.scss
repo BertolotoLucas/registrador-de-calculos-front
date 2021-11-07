@@ -14,7 +14,7 @@
 
 .calculator-background{
   background-image: radial-gradient(circle at 31.7% 118.3%, #ffeda4 0, #f0d283 50%, #dbb763 100%);
-    
+  border-radius: 1em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -95,4 +95,14 @@ label{
   text-align: center;
   margin-left: 15em;
   margin-top: 2em;
+}
+
+.btn-light{
+  background-color: rgb(3, 199, 3);
+  color: white;
+  font-size: 1.5em;
+  border-radius: 25px;
+}
+.btn-light:hover{
+  background-color: green;
 }
