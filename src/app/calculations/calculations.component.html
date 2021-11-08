@@ -1,5 +1,5 @@
 <div class="container">
-  <table class="table table-striped">
+  <table *ngIf="calculations" class="table table-striped">
     <tr>
       <th scope="col">id</th>
       <th scope="col">Nome</th>
@@ -7,11 +7,11 @@
       <th scope="col">Resultado</th>
     </tr>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+      <tr *ngFor="let calculation of calculations">
+        <th scope="row">{{calculation.id}}</th>
+        <td>{{calculation.nomePessoa}}</td>
+        <td>{{calculation.operacao}}</td>
+        <td>{{calculation.resultado}}</td>
       </tr>      
     </tbody>
   </table>

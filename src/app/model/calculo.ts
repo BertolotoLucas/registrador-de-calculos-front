@@ -3,8 +3,7 @@ export class Calculo {
     nomePessoa?: string;
     operacao?: string;
     resultado?: number;
-
-    
+   
     public getid() : string|undefined {
         return this.id;
     }
@@ -31,7 +30,6 @@ export class Calculo {
     }
     public setresultado(resultado : number|undefined) {
         this.resultado = resultado;
-    }
-    
+    }  
     
 }
