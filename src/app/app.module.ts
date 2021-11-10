@@ -14,6 +14,8 @@ import { InputNameComponent } from './input-name/input-name.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CalculationsComponent } from './calculations/calculations.component';
+import {ObserversModule} from '@angular/cdk/observers';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { CalculationsComponent } from './calculations/calculations.component';
     MatIconModule,
     FontAwesomeModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule, 
+    ObserversModule
   ],
   providers: [],
   bootstrap: [AppComponent]

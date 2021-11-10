@@ -3,6 +3,7 @@ import { Calculo } from '../model/calculo';
 import { CalculoService } from '../service/calculo.service';
 import { Router } from '@angular/router';
 import { faList } from '@fortawesome/free-solid-svg-icons';
+import { OrganizerService } from '../utils/organizer.service';
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
@@ -18,10 +19,14 @@ export class CalculatorComponent implements OnInit {
   lastNumber = '';
   canReplace = false;
 
-  constructor(private calculoService:CalculoService, private router:Router) { }
+  constructor(private util:OrganizerService, private calculoService:CalculoService, private router:Router) { }
 
   ngOnInit(): void {
     this.name = history.state.data;
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => this.util.organizeTheBlocks(), 0.001);
   }
 
   addDigtToScreen(event: Event){
