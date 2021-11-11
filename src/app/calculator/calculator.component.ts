@@ -4,13 +4,14 @@ import { CalculoService } from '../service/calculo.service';
 import { Router } from '@angular/router';
 import { faList } from '@fortawesome/free-solid-svg-icons';
 import { OrganizerService } from '../utils/organizer.service';
+import { NameCheckerService } from '../utils/name-checker.service';
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.scss']
 })
 export class CalculatorComponent implements OnInit {
-  public page = "calculations";
+  public nextPage = "calculations";
   faList = faList;
   name = '';
   screenValue = '0';
@@ -19,10 +20,11 @@ export class CalculatorComponent implements OnInit {
   lastNumber = '';
   canReplace = false;
 
-  constructor(private util:OrganizerService, private calculoService:CalculoService, private router:Router) { }
+  constructor(private util:OrganizerService, private calculoService:CalculoService, private router:Router, private nameChecker:NameCheckerService) { }
 
   ngOnInit(): void {
     this.name = history.state.data;
+    this.nameChecker.check(this.name,this.router);
   }
 
   ngAfterViewInit(): void {
@@ -165,7 +167,7 @@ export class CalculatorComponent implements OnInit {
   }
 
   public goToList(){
-    this.router.navigate([this.page], {state: {data: this.name}});
+    this.router.navigate([this.nextPage], {state: {data: this.name}});
   }
 
 }
