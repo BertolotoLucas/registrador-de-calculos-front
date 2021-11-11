@@ -1,16 +1,26 @@
-  <table *ngIf="calculations" class="table table-striped table-hover">
-    <tr>
-      <th scope="col">id</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Operação</th>
-      <th scope="col">Resultado</th>
-    </tr>
-    <tbody>
-      <tr *ngFor="let calculation of calculations">
-        <th scope="row">{{calculation.id}}</th>
-        <td>{{calculation.nomePessoa}}</td>
-        <td>{{calculation.operacao}}</td>
-        <td>{{calculation.resultado}}</td>
-      </tr>      
-    </tbody>
-  </table>
+<div *ngIf="calculations.length > 0" >
+  <div id="search-component">
+    <label for="search-box">Procurar calculo pelo nome do usuário: </label>
+    <input #searchBox id="search-box" (Change)="search(searchBox.value)" />
+  </div>
+    <table  class="table table-striped table-hover">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Operação</th>
+        <th scope="col">Resultado</th>
+      </tr>
+      <tbody>
+        <tr *ngFor="let calculation of calculations">
+          <th scope="row">{{calculation.id}}</th>
+          <td>{{calculation.nomePessoa}}</td>
+          <td>{{calculation.operacao}}</td>
+          <td>{{calculation.resultado}}</td>
+        </tr>      
+      </tbody>
+    </table>
+</div>
+
+<div *ngIf="calculations.length == 0" >
+  <p>Não há calculos, por favor faça alguns: <a class="linkDoCalcs" (click)="returnToCalculator()">Fazer calculos!!</a></p>
+</div>
