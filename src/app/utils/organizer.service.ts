@@ -4,11 +4,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class OrganizerService {
-  vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-
   constructor() { }
 
   public organizeTheBlocks() {
+    var vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
     var heightMain = 0;
     let main = document.querySelector("main");
     main!.style.paddingTop = ("0px");
@@ -29,10 +28,10 @@ export class OrganizerService {
       console.log("Altura do navbar: " + heightNavbar);
       console.log("Altura do footer: " + heightFooter);
       console.log("Altura total: " + totalHeight);
-      console.log("Altura do vh: " + this.vh);
+      console.log("Altura do vh: " + vh);
 
-      if (totalHeight < this.vh) {
-        var i = this.vh - totalHeight;
+      if (totalHeight < vh) {
+        var i = vh - totalHeight;
         var i2 = i / 2;
         main!.style.paddingTop = (i2.toString() + "px");
         main!.style.paddingBottom = (i2.toString() + "px");
@@ -41,15 +40,6 @@ export class OrganizerService {
         main!.style.paddingTop = ("0px");
         main!.style.paddingBottom = ("0px");
       }
-
-      /* if (totalHeight<this.vh) {
-        var margin = this.vh - totalHeight;
-        console.log("Margem para o footer: "+margin);
-        footer!.style.marginTop = margin.toString()+"px";
-        console.log()
-      } else {
-          footer!.style.marginTop = "0px";
-      } */
     }
     
   }

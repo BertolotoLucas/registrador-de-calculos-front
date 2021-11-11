@@ -27,7 +27,20 @@ export class CalculoService {
       //tap((newCalculo: Calculo) => console.log(`added calculo w/ id=${newCalculo.id}`)),
       catchError(this.handleError<Calculo>("addCalculo"))
     );
-  } 
+  }
+  
+  searchCalculoByNome(nome:string): Observable<Calculo[]>{
+    if(!nome.trim()){
+      return of([]);
+    }
+    return this.httpClient.get<Calculo[]>(`${this.calculosURL}/?nomeCliente=${nome}`).pipe(
+      tap(x => x.length ?
+        console.log(`Calculos encontrados com o nome "${nome}"`) :
+        console.log(`Calculos encontrados não encontrados "${nome}"`)),
+      catchError(this.handleError<Calculo[]>('searchHeroes', []))
+    );
+
+  }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
