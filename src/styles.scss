@@ -41,3 +41,15 @@ body {margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+body::after {
+  background:  url("app/img/background.png");
+  content: "";
+  opacity: 0.40;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;   
+}

@@ -16,8 +16,8 @@ export class OrganizerService {
 
     if(heightMain)
     if(heightMain>=0){ 
-      let navbar = document.querySelector("nav");
-      var heightNavbar = navbar?.clientHeight;
+      let header = document.querySelector("header");
+      var heightNavbar = header?.clientHeight;
     
       
       let footer = document.querySelector("footer");

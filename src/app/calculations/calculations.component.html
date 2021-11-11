@@ -15,9 +15,9 @@
         <tr *ngFor="let calculation of calculations">
           <th scope="row">{{calculation.id}}</th>
           <td>{{calculation.nomePessoa}}</td>
-          <td>{{calculation.operacao}}</td>
-          <td *ngIf="calculation.resultado">{{calculation.resultado}}</td>
-          <td *ngIf="!calculation.resultado">Error.</td>
+          <td class="font-italic">{{calculation.operacao}}</td>
+          <td *ngIf="calculation.resultado" class="text-center text-success font-weight-bold">{{calculation.resultado}}</td>
+          <td *ngIf="!calculation.resultado" class="text-center text-danger font-weight-bold" >Error.</td>
         </tr>      
       </tbody>
     </table>
