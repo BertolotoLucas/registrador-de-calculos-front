@@ -38,8 +38,46 @@ export class CalculationsComponent implements OnInit {
 
   getCalculos(){
     this.calculoService.getCalculos().toPromise().then(
-      calculations => this.calculations = calculations
+      calculations => this.calculations = this.formatCalculations(calculations)
     );
+  }
+
+  formatCalculations(calculations: Calculo[]): Calculo[] {
+    calculations.forEach(
+      calc => {
+        calc.operacao = this.formatOperation(calc.operacao)
+      }
+    );
+    return calculations;
+  }
+
+  formatOperation(operation: string | undefined): string | undefined {
+    var result = operation?.split(',')[0];
+    var symbol = operation?.split(',')[1];
+    switch(symbol) {
+      case 'plus':{
+        result = result?.concat(" + ");
+        break;
+      }
+      case 'minus':{
+        result = result?.concat(" - ");
+        break;
+      }
+      case 'multiply':{
+        result = result?.concat(" * ");
+        break;
+      }
+      case 'divide':{
+        result = result?.concat(" / ");
+        break;
+      }
+      default:{
+        console.log("Operation is not supported!");
+        break;
+      }
+    }
+    result = result?.concat(operation!.split(',')[2]);
+    return result;
   }
 
   returnToCalculator(){

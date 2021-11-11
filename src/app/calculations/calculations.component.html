@@ -15,7 +15,8 @@
           <th scope="row">{{calculation.id}}</th>
           <td>{{calculation.nomePessoa}}</td>
           <td>{{calculation.operacao}}</td>
-          <td>{{calculation.resultado}}</td>
+          <td *ngIf="calculation.resultado">{{calculation.resultado}}</td>
+          <td *ngIf="!calculation.resultado">Error.</td>
         </tr>      
       </tbody>
     </table>
