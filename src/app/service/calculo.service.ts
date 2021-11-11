@@ -31,6 +31,7 @@ export class CalculoService {
   
   searchCalculoByNome(nome:string): Observable<Calculo[]>{
     if(!nome.trim()){
+      console.log("Estou retornando todos os dados!");
       return of([]);
     }
     return this.httpClient.get<Calculo[]>(`${this.calculosURL}/?nomeCliente=${nome}`).pipe(

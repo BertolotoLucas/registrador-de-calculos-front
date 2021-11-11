@@ -7,6 +7,7 @@ import {
   debounceTime, distinctUntilChanged, switchMap
 } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { NameCheckerService } from '../utils/name-checker.service';
 
 @Component({
   selector: 'app-calculations',
@@ -18,11 +19,12 @@ export class CalculationsComponent implements OnInit {
   calculations: Calculo[] = [];
   private searchTerms = new Subject<string>();
 
-  constructor(private util:OrganizerService, private calculoService:CalculoService, private router:Router) {}
+  constructor(private util:OrganizerService, private calculoService:CalculoService, private router:Router, private nameChecker: NameCheckerService) {}
 
   ngOnInit():void {
-    this.name = history.state.data;   
-    //this.getCalculos();
+    this.name = history.state.data;
+    this.nameChecker.check(this.name,this.router);  
+    this.getCalculos();
   }
 
   ngAfterViewChecked(): void {
