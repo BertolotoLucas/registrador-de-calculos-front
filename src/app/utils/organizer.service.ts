@@ -14,7 +14,6 @@ export class OrganizerService {
     main!.style.paddingBottom = ("0px");
     heightMain = main!.clientHeight;
 
-    console.log("Altura do main: " + heightMain);
     if(heightMain)
     if(heightMain>=0){ 
       let navbar = document.querySelector("nav");
@@ -25,10 +24,6 @@ export class OrganizerService {
       var heightFooter = footer?.clientHeight;
       var totalHeight = Number(heightMain) + Number(heightNavbar) + Number(heightFooter);
 
-      console.log("Altura do navbar: " + heightNavbar);
-      console.log("Altura do footer: " + heightFooter);
-      console.log("Altura total: " + totalHeight);
-      console.log("Altura do vh: " + vh);
 
       if (totalHeight < vh) {
         var i = vh - totalHeight;

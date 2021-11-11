@@ -17,6 +17,7 @@ import { NameCheckerService } from '../utils/name-checker.service';
 export class CalculationsComponent implements OnInit {
   name = '';
   calculations: Calculo[] = [];
+  isFinding = false;
   private searchTerms = new Subject<string>();
 
   constructor(private util:OrganizerService, private calculoService:CalculoService, private router:Router, private nameChecker: NameCheckerService) {}
@@ -32,13 +33,16 @@ export class CalculationsComponent implements OnInit {
   }  	
 
 
-  search(term: string): void {
-    this.searchTerms.next(term);
+  search(name: string): void {
+    this.calculoService.searchCalculoByNome(name).toPromise().then(
+      calculos => this.calculations = this.formatCalculations(calculos)
+    );
+    this.isFinding = true;
   }
 
   getCalculos(){
     this.calculoService.getCalculos().toPromise().then(
-      calculations => this.calculations = this.formatCalculations(calculations)
+      calculos => this.calculations = this.formatCalculations(calculos)
     );
   }
 

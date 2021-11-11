@@ -17,7 +17,7 @@ export class CalculoService {
 
   getCalculos() : Observable<Calculo[]> {
     return this.httpClient.get<Calculo[]>(this.calculosURL).pipe(
-      tap(_ => console.log('fetched calculos')),
+      //tap(_ => console.log('fetched calculos')),
       catchError(this.handleError<Calculo[]>("getCalculos",[]))
     ); 
   }
@@ -32,9 +32,9 @@ export class CalculoService {
   searchCalculoByNome(nome:string): Observable<Calculo[]>{
     if(!nome.trim()){
       console.log("Estou retornando todos os dados!");
-      return of([]);
+      return this.getCalculos();
     }
-    return this.httpClient.get<Calculo[]>(`${this.calculosURL}/?nomeCliente=${nome}`).pipe(
+    return this.httpClient.get<Calculo[]>(`${this.calculosURL}?nomePessoa=${nome}`).pipe(
       tap(x => x.length ?
         console.log(`Calculos encontrados com o nome "${nome}"`) :
         console.log(`Calculos encontrados não encontrados "${nome}"`)),
