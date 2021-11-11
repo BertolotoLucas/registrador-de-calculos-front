@@ -5,10 +5,11 @@ div{
     text-decoration: none;
     color: #6c757d;
     transition: all 0.80s;
+    display: inline-block;
 }
 
 .icon:hover {
-   font-size: 1.20em;
+    transform: scale(1.2);
 }
 
 .linkedinIcon:hover {
@@ -33,7 +34,7 @@ div{
 
 .mongoIcon:hover{
     color: #3fa037;
-    font-size: 1.35em;
+    transform: scale(1.45);
 }
 
 .mailIcon:hover{
