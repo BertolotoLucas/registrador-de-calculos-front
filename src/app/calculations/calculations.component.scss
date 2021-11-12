@@ -1,7 +1,16 @@
-.table{
-    margin-top: 1em;
+.table-responsive{
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 .linkDoCalcs{
     cursor: pointer;   
+}
+.table-background{
+  border-radius: 0.75em;
+  box-shadow: 0px 0px 12px 1px rgba(0,0,0,0.2);
+}
+
+th{
+    border: none;
 }
