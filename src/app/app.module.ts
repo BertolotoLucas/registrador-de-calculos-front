@@ -24,7 +24,7 @@ import {ObserversModule} from '@angular/cdk/observers';
     FooterComponent,
     InputNameComponent,
     CalculatorComponent,
-    CalculationsComponent
+    CalculationsComponent,
   ],
   imports: [
     BrowserModule,

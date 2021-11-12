@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { Calculo } from '../model/calculo';
 import { CalculoService } from '../service/calculo.service';
 import { OrganizerService } from '../utils/organizer.service';
@@ -8,6 +8,7 @@ import {
 } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { NameCheckerService } from '../utils/name-checker.service';
+import { PageCalculo } from '../model/page-calculo';
 
 @Component({
   selector: 'app-calculations',
@@ -18,13 +19,15 @@ export class CalculationsComponent implements OnInit {
   name = '';
   calculations: Calculo[] = [];
   isFinding = false;
-  private searchTerms = new Subject<string>();
+  actualPage = 0;
+  lastPage = 0;
+  totalItens = 0;
 
   constructor(private util:OrganizerService, private calculoService:CalculoService, private router:Router, private nameChecker: NameCheckerService) {}
 
   ngOnInit():void {
     this.name = history.state.data;
-    this.nameChecker.check(this.name,this.router);  
+    //this.nameChecker.check(this.name,this.router);  
     this.getCalculos();
   }
 
@@ -35,18 +38,30 @@ export class CalculationsComponent implements OnInit {
 
   search(name: string): void {
     this.calculoService.searchCalculoByNome(name).toPromise().then(
-      calculos => this.calculations = this.formatCalculations(calculos)
+      page => {
+        this.catchDataFrom(page);
+      }
     );
     this.isFinding = true;
   }
 
+  private catchDataFrom(page: PageCalculo) {
+    this.actualPage = page.currentPage;
+    this.lastPage = page.totalPages;
+    this.totalItens = page.totalItems;
+    this.calculations = this.formatCalculations(page.calculos);
+  }
+
   getCalculos(){
-    this.calculoService.getCalculos().toPromise().then(
-      calculos => this.calculations = this.formatCalculations(calculos)
+    this.calculoService.getCalculosPage().toPromise().then(
+      page => {
+        this.catchDataFrom(page);
+      }
     );
   }
 
   formatCalculations(calculations: Calculo[]): Calculo[] {
+    calculations.forEach(x => x.operacao);
     calculations.forEach(
       calc => {
         calc.operacao = this.formatOperation(calc.operacao)

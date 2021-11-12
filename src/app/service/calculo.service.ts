@@ -23,13 +23,6 @@ export class CalculoService {
     ); 
   }
 
-  getCalculosPage(page:number, size:number) : Observable<PageCalculo>{
-    return this.httpClient.get<PageCalculo>(`${this.calculosURL}?page=${page}&size=${size}`).pipe(
-      //tap(_ => console.log('fetched PageCalculo')),
-      catchError(this.handleError<PageCalculo>("getCalculosPage"))
-    )
-  }
-
   addCalculo(calculo:Calculo) : Observable<Calculo> {
     return this.httpClient.post<Calculo>(this.calculosURL,calculo,this.httpOptions).pipe(
       //tap((newCalculo: Calculo) => console.log(`added calculo w/ id=${newCalculo.id}`)),
@@ -37,16 +30,24 @@ export class CalculoService {
     );
   }
   
-  searchCalculoByNome(nome:string): Observable<Calculo[]>{
+  
+  getCalculosPage(page=0, size=7) : Observable<PageCalculo>{
+    return this.httpClient.get<PageCalculo>(`${this.calculosURL}?page=${page}&size=${size}`).pipe(
+      //tap(_ => console.log('fetched PageCalculo')),
+      catchError(this.handleError<PageCalculo>("getCalculosPage"))
+    )
+  }
+
+  searchCalculoByNome(nome:string): Observable<PageCalculo>{
     if(!nome.trim()){
       console.log("Estou retornando todos os dados!");
-      return this.getCalculos();
+      return this.getCalculosPage();
     }
-    return this.httpClient.get<Calculo[]>(`${this.calculosURL}?nomePessoa=${nome}`).pipe(
-      tap(x => x.length ?
+    return this.httpClient.get<PageCalculo>(`${this.calculosURL}?nomePessoa=${nome}`).pipe(
+      tap(x => x.calculos?.length ?
         console.log(`Calculos encontrados com o nome "${nome}"`) :
         console.log(`Calculos encontrados não encontrados "${nome}"`)),
-      catchError(this.handleError<Calculo[]>('searchHeroes', []))
+      catchError(this.handleError<PageCalculo>('searchCalculoByName'))
     );
 
   }
