@@ -4,6 +4,7 @@ import { Observable,of } from 'rxjs';
 import { catchError, tap, map} from 'rxjs/operators'
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
+import { PageCalculo } from '../model/page-calculo';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,6 +21,13 @@ export class CalculoService {
       //tap(_ => console.log('fetched calculos')),
       catchError(this.handleError<Calculo[]>("getCalculos",[]))
     ); 
+  }
+
+  getCalculosPage(page:number, size:number) : Observable<PageCalculo>{
+    return this.httpClient.get<PageCalculo>(`${this.calculosURL}?page=${page}&size=${size}`).pipe(
+      //tap(_ => console.log('fetched PageCalculo')),
+      catchError(this.handleError<PageCalculo>("getCalculosPage"))
+    )
   }
 
   addCalculo(calculo:Calculo) : Observable<Calculo> {
