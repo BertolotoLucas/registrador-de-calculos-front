@@ -56,3 +56,16 @@ th{
 .pagination{
     margin-bottom: 0px;
 }
+
+.page-link{
+    color: #0c6d7c;
+    border-color: #0c6d7c;
+    cursor: pointer;
+}
+
+.page-item.active .page-link{
+    color: white;
+    background-color: #0c6d7c;
+    border-color: #0c6d7c;
+    cursor:default;
+}

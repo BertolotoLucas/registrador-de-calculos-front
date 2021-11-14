@@ -52,7 +52,7 @@
       <li *ngIf="(actualPage+1)<lastPage" class="page-item"><a class="page-link" (click)="getPage(actualPage+1)">{{actualPage+2}}</a></li>
       <li *ngIf="(actualPage+2)<lastPage" class="page-item"><a class="page-link" (click)="getPage(actualPage+2)">{{actualPage+3}}</a></li>
 
-      <li *ngIf="actualPage+3<lastPage" class="page-item"><a class="page-link" (click)="getPage(lastPage-1)">Ultima</a></li>
+      <li *ngIf="actualPage+3<lastPage" class="page-item"><a class="page-link" (click)="getPage(lastPage-1)">Última</a></li>
     </ul>
   </nav>
 
