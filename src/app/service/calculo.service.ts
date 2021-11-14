@@ -31,19 +31,19 @@ export class CalculoService {
   }
   
   
-  getCalculosPage(page=0, size=7) : Observable<PageCalculo>{
+  getCalculosPage(page=0, size=8) : Observable<PageCalculo>{
     return this.httpClient.get<PageCalculo>(`${this.calculosURL}?page=${page}&size=${size}`).pipe(
       //tap(_ => console.log('fetched PageCalculo')),
       catchError(this.handleError<PageCalculo>("getCalculosPage"))
     )
   }
 
-  searchCalculoByNome(nome:string): Observable<PageCalculo>{
+  searchCalculoByNome(nome:string,page=0, size=8): Observable<PageCalculo>{
     if(!nome.trim()){
       console.log("Estou retornando todos os dados!");
       return this.getCalculosPage();
     }
-    return this.httpClient.get<PageCalculo>(`${this.calculosURL}?nomePessoa=${nome}`).pipe(
+    return this.httpClient.get<PageCalculo>(`${this.calculosURL}?page=${page}&size=${size}&nomePessoa=${nome}`).pipe(
       tap(x => x.calculos?.length ?
         console.log(`Calculos encontrados com o nome "${nome}"`) :
         console.log(`Calculos encontrados não encontrados "${nome}"`)),
