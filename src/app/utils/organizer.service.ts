@@ -38,4 +38,11 @@ export class OrganizerService {
     }
     
   }
+
+  public organizePagination(){
+    console.log("Peguei a altura da tabela sendo: " + document.querySelector(".table-responsive")?.clientHeight);
+    var tableHeight = document.querySelector(".table-responsive")?.clientHeight;
+    var paddingTop = 489 - Number(tableHeight) ;
+    document.getElementById("nav-pag")!.style.paddingTop = paddingTop+"px";
+  }
 }

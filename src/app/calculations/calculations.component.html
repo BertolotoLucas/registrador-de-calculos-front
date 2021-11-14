@@ -40,7 +40,7 @@
   </table>
   </div>
   
-  <nav *ngIf="calculations.length > 0">
+  <nav id="nav-pag" *ngIf="calculations.length > 0">
     <ul class="pagination justify-content-end">
       <li *ngIf="(actualPage-3)>=0" class="page-item"><a class="page-link" (click)="getPage(0)">Primeira</a></li>
 

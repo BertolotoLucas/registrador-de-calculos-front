@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of, Subject } from 'rxjs';
 import { Calculo } from '../model/calculo';
 import { CalculoService } from '../service/calculo.service';
 import { OrganizerService } from '../utils/organizer.service';
-import {
-  debounceTime, distinctUntilChanged, switchMap
-} from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { NameCheckerService } from '../utils/name-checker.service';
 import { PageCalculo } from '../model/page-calculo';
@@ -35,6 +31,7 @@ export class CalculationsComponent implements OnInit {
   }
 
   ngAfterViewChecked(): void {
+    this.util.organizePagination();
     this.util.organizeTheBlocks();
   }
   
@@ -119,5 +116,4 @@ export class CalculationsComponent implements OnInit {
       this.router.navigate(routes,{state:{data:this.name}});
     }
   }
-
 }
