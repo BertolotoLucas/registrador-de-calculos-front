@@ -1,10 +1,35 @@
+.welcome{
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #343a3e;
+  border-radius: 0.5em;
+  background-color: RGBA(250,250,250,0.84);
+  color: #343a3e;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+h2{
+  text-align: center;
+}
+
+h5{
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  text-align: justify;
+  font-style: italic;
+  padding-bottom: 0.75em;
+}
+
+
 @font-face {
   font-family: 'digital-7';
   src: url('../fonts/Digital Numbers 400.ttf');
 }
 
-
 .calculator{
+  padding-top: 25px;
   width: fit-content;
 }
 
