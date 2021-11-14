@@ -26,7 +26,7 @@ export class CalculationsComponent implements OnInit {
 
   ngOnInit():void {
     this.name = history.state.data;
-    //this.nameChecker.check(this.name,this.router);  
+    this.nameChecker.check(this.name,this.router);  
     this.getCalculos();
   }
 
