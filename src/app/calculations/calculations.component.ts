@@ -24,6 +24,7 @@ export class CalculationsComponent implements OnInit {
   actualPage = 0;
   lastPage = 0;
   totalItens = 0;
+  nomePessoa = '';
 
   constructor(private util:OrganizerService, private calculoService:CalculoService, private router:Router, private nameChecker: NameCheckerService) {}
 
@@ -35,11 +36,21 @@ export class CalculationsComponent implements OnInit {
 
   ngAfterViewChecked(): void {
     this.util.organizeTheBlocks();
-  }  	
+  }
+  
+  getPage(numPage:number){
+    if(this.nomePessoa==''){
+      this.getCalculos(numPage);
+    }
+    else {
+      this.search(this.nomePessoa, numPage);
+    }
+  }
 
 
-  search(name: string): void {
-    this.calculoService.searchCalculoByNome(name).toPromise().then(
+  search(name: string, numPage=0): void {
+    this.nomePessoa=name;
+    this.calculoService.searchCalculoByNome(name, numPage).toPromise().then(
       page => {
         this.catchDataFrom(page);
       }
@@ -54,8 +65,8 @@ export class CalculationsComponent implements OnInit {
     this.calculations = this.formatCalculations(page.calculos);
   }
 
-  getCalculos(){
-    this.calculoService.getCalculosPage().toPromise().then(
+  getCalculos(numPage=0){
+    this.calculoService.getCalculosPage(numPage).toPromise().then(
       page => {
         this.catchDataFrom(page);
       }

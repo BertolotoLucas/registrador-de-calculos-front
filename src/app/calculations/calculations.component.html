@@ -11,9 +11,7 @@
   </div> -->
 
   <div class="row height d-flex justify-content-center align-items-center" id="search-component" *ngIf="!(calculations.length == 0 && !isFinding)">
-    <div class="col-md2">
-      <!-- <label for="search-box">Procurar cálculos pelo nome do usuário: </label> -->
-  
+    <div class="col-md2">  
       <fa-icon class="search-icon"  [icon]="faSearch" ></fa-icon>
       <input type="search" class="search-input" placeholder="Pesquisar pelo nome..." #searchBox id="search-box" (input)="search(searchBox.value)">
     </div>
@@ -43,18 +41,24 @@
   </div>
   
   <nav *ngIf="calculations.length > 0">
+    <i>Pagina atual: {{actualPage+1}}</i>
+    <i>Ultima pagina: {{lastPage}}</i>
     <ul class="pagination justify-content-end">
-      <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
+      <li *ngIf="(actualPage-3)>=0" class="page-item"><a class="page-link" (click)="getPage(0)">Primeira</a></li>
+
+      <li *ngIf="(actualPage-2)>=0" class="page-item"><a class="page-link" (click)="getPage(actualPage-2)">{{actualPage-1}}</a></li>
+      <li *ngIf="(actualPage-1)>=0" class="page-item"><a class="page-link" (click)="getPage(actualPage-1)">{{actualPage}}</a></li>
+
+      <li *ngIf="actualPage>=0" class="page-item active"><a class="page-link">{{actualPage+1}}</a></li>
+
+      <li *ngIf="(actualPage+1)<lastPage" class="page-item"><a class="page-link" (click)="getPage(actualPage+1)">{{actualPage+2}}</a></li>
+      <li *ngIf="(actualPage+2)<lastPage" class="page-item"><a class="page-link" (click)="getPage(actualPage+2)">{{actualPage+3}}</a></li>
+
+      <li *ngIf="actualPage+3<lastPage" class="page-item"><a class="page-link" (click)="getPage(lastPage-1)">Ultima</a></li>
     </ul>
   </nav>
+
+  
 
   <div *ngIf="calculations.length == 0 && !isFinding" >
     <p>Não há calculos, por favor faça alguns: <a class="linkDoCalcs" (click)="returnToCalculator()">Fazer calculos!!</a></p>
