@@ -41,8 +41,6 @@
   </div>
   
   <nav *ngIf="calculations.length > 0">
-    <i>Pagina atual: {{actualPage+1}}</i>
-    <i>Ultima pagina: {{lastPage}}</i>
     <ul class="pagination justify-content-end">
       <li *ngIf="(actualPage-3)>=0" class="page-item"><a class="page-link" (click)="getPage(0)">Primeira</a></li>
 
@@ -57,8 +55,6 @@
       <li *ngIf="actualPage+3<lastPage" class="page-item"><a class="page-link" (click)="getPage(lastPage-1)">Ultima</a></li>
     </ul>
   </nav>
-
-  
 
   <div *ngIf="calculations.length == 0 && !isFinding" >
     <p>Não há calculos, por favor faça alguns: <a class="linkDoCalcs" (click)="returnToCalculator()">Fazer calculos!!</a></p>
