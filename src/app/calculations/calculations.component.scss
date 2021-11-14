@@ -1,3 +1,41 @@
+.search-icon{
+    padding-left: 8px;
+    padding-top: 0.35em;
+    position: absolute;
+    color: #0c6d7c;
+}
+
+#search-component{
+    padding-top: 0.3em;
+}
+
+.search-input{    
+    border-radius: 0.8em;
+    border-color: #0c6d7c;
+    border-style: solid;
+    outline-offset: 0px;
+    padding-left: 26px;
+    padding-right: 6px;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    width:max-content;
+    caret-color: #0c6d7c;
+    color: #0c6d7c;
+}
+
+.search-input::placeholder{
+    color: #0c6d7c;
+}
+
+.search-input::-ms-input-placeholder{
+    color: #0c6d7c;
+}
+
+.search-input:focus {
+	outline: none;
+    border-color: #0c6d7c;
+}
+
 .table-responsive{
     padding-top: 1em;
     padding-bottom: 1em;

@@ -1,7 +1,25 @@
-  <div id="search-component" *ngIf="!(calculations.length == 0 && !isFinding)">
-    <label for="search-box">Procurar calculo pelo nome do usuário: </label>
-    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+  
+
+  
+  <!-- <div class="row height d-flex justify-content-center align-items-center">
+    <div class="col-md-6">
+        <div class="form">
+          <i class="fa fa-search"></i>
+          <input type="text" class="form-control form-input" placeholder="Search anything...">
+          <span class="left-pan"><i class="fa fa-microphone"></i></span> </div>
+    </div>
+  </div> -->
+
+  <div class="row height d-flex justify-content-center align-items-center" id="search-component" *ngIf="!(calculations.length == 0 && !isFinding)">
+    <div class="col-md2">
+      <!-- <label for="search-box">Procurar cálculos pelo nome do usuário: </label> -->
+  
+      <fa-icon class="search-icon"  [icon]="faSearch" ></fa-icon>
+      <input type="search" class="search-input" placeholder="Pesquisar pelo nome..." #searchBox id="search-box" (input)="search(searchBox.value)">
+    </div>
+
   </div>
+
   <div class="table-responsive">
   <table *ngIf="calculations.length > 0" class="table table-dark table-striped table-hover text-center table-background">
     <thead>

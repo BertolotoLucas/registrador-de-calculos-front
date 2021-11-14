@@ -9,6 +9,7 @@ import {
 import { Router } from '@angular/router';
 import { NameCheckerService } from '../utils/name-checker.service';
 import { PageCalculo } from '../model/page-calculo';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-calculations',
@@ -16,6 +17,7 @@ import { PageCalculo } from '../model/page-calculo';
   styleUrls: ['./calculations.component.scss']
 })
 export class CalculationsComponent implements OnInit {
+  faSearch = faSearch;
   name = '';
   calculations: Calculo[] = [];
   isFinding = false;
