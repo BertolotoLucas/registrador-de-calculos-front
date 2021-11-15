@@ -5,16 +5,19 @@
   border-width: 2px;
   border-color: #343a3e;
   border-radius: 0.5em;
-  background-color: RGBA(250,250,250,0.84);
+  background-color: RGBA(255,255,255,0.85);
   color: #343a3e;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-h2{
-  text-align: center;
+  font-family: 'Delius', cursive;
+  width: 70%;
+  margin: 0 auto;
 }
 
 h5{
+  text-align: center;
+}
+
+h6{
   padding-left: 0.5em;
   padding-right: 0.5em;
   text-align: justify;
