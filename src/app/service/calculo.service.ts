@@ -9,7 +9,7 @@ import { PageCalculo } from '../model/page-calculo';
   providedIn: 'root'
 })
 export class CalculoService {
-  private calculosURL = "http://localhost:8080/calculos";
+  private calculosURL = "https://safe-brook-70758.herokuapp.com/calculos";
   private httpOptions = {
     headers: new HttpHeaders({'Content-Type' : 'application/json'}),
   };
@@ -40,13 +40,12 @@ export class CalculoService {
 
   searchCalculoByNome(nome:string,page=0, size=8): Observable<PageCalculo>{
     if(!nome.trim()){
-      console.log("Estou retornando todos os dados!");
       return this.getCalculosPage();
     }
     return this.httpClient.get<PageCalculo>(`${this.calculosURL}?page=${page}&size=${size}&nomePessoa=${nome}`).pipe(
-      tap(x => x.calculos?.length ?
-        console.log(`Calculos encontrados com o nome "${nome}"`) :
-        console.log(`Calculos encontrados não encontrados "${nome}"`)),
+      //tap(x => x.calculos?.length ?
+      //  console.log(`Calculos encontrados com o nome "${nome}"`) :
+      //  console.log(`Calculos encontrados não encontrados "${nome}"`)),
       catchError(this.handleError<PageCalculo>('searchCalculoByName'))
     );
 

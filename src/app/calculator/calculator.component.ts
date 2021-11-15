@@ -107,49 +107,14 @@ export class CalculatorComponent implements OnInit {
       }
       this.canReplace=true;
     }
-    // console.log("operation: "+this.operation+", last number: "+this.lastNumber);
   }
 
   async getResult(){
     if (this.lastNumber && this.screenValue && this.operation && !this.canReplace){
-      // console.log("sending to server: "+ this.operation
-      //   + ", last number: "+this.lastNumber 
-      //   +" screen value: " + this.screenValue );
       var calculo: Calculo = new Calculo();
       calculo.setnomePessoa(this.name);
       calculo.setoperacao(this.lastNumber+','+this.operation+','+this.screenValue);
       calculo.setresultado((await this.calculoService.addCalculo(calculo).toPromise()).resultado); //Getters doesnot work with promisses..
-      // const x1 = Number(this.lastNumber);
-      // const x2 = Number(this.screenValue)
-      // switch(this.operation) {
-      //   case 'sum':{
-      //     this.screenValue = (x1+x2).toString();
-      //     break;
-      //   }
-      //   case 'minus':{
-      //     this.screenValue = (x1-x2).toString();
-      //     break;
-      //   }
-      //   case 'multiply':{
-      //     this.screenValue = (x1*x2).toString();
-      //     break;
-      //   }
-      //   case 'divide':{
-      //     if (x2===0){
-      //       this.screenValue = "Error.";
-      //     } else {
-      //        this.screenValue = (x1/x2).toString();
-      //     }
-      //     break;
-      //   }
-      //   default:{
-      //     console.log("Operation is not supported!");
-      //     break;
-      //   }
-      // // }
-      // let str = '';
-      // str = JSON.stringify(calculo);
-      // console.log(str);
       this.screenValue = calculo.getresultado()?.toString()||"Error";
       this.clearCalculator();
       this.canReplace=true;
