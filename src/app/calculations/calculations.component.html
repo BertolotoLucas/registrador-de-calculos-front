@@ -1,15 +1,3 @@
-  
-
-  
-  <!-- <div class="row height d-flex justify-content-center align-items-center">
-    <div class="col-md-6">
-        <div class="form">
-          <i class="fa fa-search"></i>
-          <input type="text" class="form-control form-input" placeholder="Search anything...">
-          <span class="left-pan"><i class="fa fa-microphone"></i></span> </div>
-    </div>
-  </div> -->
-
   <div class="row height d-flex justify-content-center align-items-center" id="search-component" *ngIf="!(calculations.length == 0 && !isFinding)">
     <div class="col-md2">  
       <fa-icon class="search-icon"  [icon]="faSearch" ></fa-icon>
@@ -56,6 +44,6 @@
     </ul>
   </nav>
 
-  <div *ngIf="calculations.length == 0 && !isFinding" >
+  <div *ngIf="calculations.length == 0 && !isFinding">
     <p>Não há calculos, por favor faça alguns: <a class="linkDoCalcs" (click)="returnToCalculator()">Fazer calculos!!</a></p>
   </div>

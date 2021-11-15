@@ -13,7 +13,6 @@ export class OrganizerService {
     main!.style.paddingTop = ("0px");
     main!.style.paddingBottom = ("0px");
     heightMain = main!.clientHeight;
-
     if(heightMain)
     if(heightMain>=0){ 
       let header = document.querySelector("header");
@@ -40,9 +39,12 @@ export class OrganizerService {
   }
 
   public organizePagination(){
-    console.log("Peguei a altura da tabela sendo: " + document.querySelector(".table-responsive")?.clientHeight);
     var tableHeight = document.querySelector(".table-responsive")?.clientHeight;
-    var paddingTop = 489 - Number(tableHeight) ;
-    document.getElementById("nav-pag")!.style.paddingTop = paddingTop+"px";
+    if (tableHeight) {
+      var paddingTop = 489 - Number(tableHeight) ;
+      let pagination = document.getElementById("nav-pag");
+      if(pagination)
+        pagination.style.paddingTop = paddingTop+"px";
+    }
   }
 }
