@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { OrganizerService } from '../utils/organizer.service';
 @Component({
   selector: 'app-input-name',
   templateUrl: './input-name.component.html',
@@ -9,8 +10,13 @@ export class InputNameComponent implements OnInit {
   public name: string | undefined;
   public page = "calculator";
   
-  constructor(private router:Router) {}
-  ngOnInit(): void {}  
+  constructor(private router:Router,private util:OrganizerService) {}
+  ngOnInit(): void {
+  }  
+
+  ngAfterViewInit(): void {
+    setTimeout(() => this.util.organizeTheBlocks(), 0.001);
+  }
 
   registerName(name:string|undefined): void {
     const routes: string[] = [];
@@ -18,10 +24,9 @@ export class InputNameComponent implements OnInit {
     if (this.name) {
       routes.push(this.page);
       this.router.navigate(routes,{state:{data:this.name}});
-
-      //this.reloadComponent();
     }
   }
+
   reloadComponent() {
     let currentUrl = this.router.url;
         this.router.routeReuseStrategy.shouldReuseRoute = () => false;
