@@ -37,8 +37,6 @@ h6{
 }
 
 .calculator-background{
-  //background-image: radial-gradient(circle at 31.7% 118.3%, #ffeda4 0, #f0d283 50%, #dbb763 100%);
-  //background-color: #f0d283;
   background-color: #343a3e;
 
   border-radius: 1em;
@@ -136,6 +134,7 @@ label{
   margin: auto;
   width: 232px;
   text-align: right;
+  padding-bottom: 15px;
 }
 
 .btn-light{

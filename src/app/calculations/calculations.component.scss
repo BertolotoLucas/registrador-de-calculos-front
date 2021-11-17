@@ -50,7 +50,17 @@ th{
     border: none;
 }
 
+.content-text-truncate{
+  display: block;
+}
+
+.text-truncate{
+   width: auto;
+   display: inline-block;
+}
+
 .pagination{
+    padding-bottom: 5px;
     margin-bottom: 0px;
 }
 
@@ -69,4 +79,23 @@ th{
 
 .linkDoCalcs{
     cursor: pointer;   
+}
+
+
+@media screen and (max-device-width: 500px) {
+    .text-truncate-id{
+       width: 20px;
+    }
+
+    .text-truncate-nome{
+        width: 63px;
+     }
+
+    .text-truncate-resultado{
+        width: 55px;
+    }
+
+    .search-input{    
+        width: 325px;
+    }
 }

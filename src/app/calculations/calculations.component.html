@@ -18,10 +18,10 @@
     </thead>     
     <tbody>
       <tr *ngFor="let calculation of calculations">
-        <td scope="row" class="text-break">{{calculation.id}}</td>
-        <td scope="row" class="text-break">{{calculation.nomePessoa}}</td>
+        <td scope="row"><div class="content-text-truncate text-truncate text-truncate-id">{{calculation.id}}</div></td>
+        <td scope="row"><div class="content-text-truncate text-truncate text-truncate-nome">{{calculation.nomePessoa}}</div></td>
         <td scope="row" class="text-break font-italic">{{calculation.operacao}}</td>
-        <td scope="row" *ngIf="calculation.resultado" class="text-success font-weight-bold">{{calculation.resultado}}</td>
+        <td scope="row" *ngIf="calculation.resultado" class="text-success font-weight-bold"><div class="content-text-truncate text-truncate text-truncate-resultado">{{calculation.resultado}}</div></td>
         <td scope="row" *ngIf="!calculation.resultado" class="text-danger font-weight-bold" >Error.</td>
       </tr>      
     </tbody>
