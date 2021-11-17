@@ -36,11 +36,18 @@ export class OrganizerService {
 
   public organizePagination(){
     var tableHeight = document.querySelector(".table-responsive")?.clientHeight;
-    if (tableHeight) {
-      var paddingTop = 489 - Number(tableHeight) ;
+    console.log("Altura da tabela: "+tableHeight);
+    if(tableHeight)
+    if (tableHeight<=537) {
+      var paddingTop = 537 - Number(tableHeight) ;
+      console.log("Padding top que sera inserido: "+ paddingTop);
       let pagination = document.getElementById("nav-pag");
       if(pagination)
         pagination.style.paddingTop = paddingTop+"px";
+    } else {
+        let pagination = document.getElementById("nav-pag");
+        if (pagination)
+          pagination.style.paddingTop = "0px";
     }
   }
 }
