@@ -26,7 +26,7 @@ export class OrganizerService {
 
       if (totalHeight < vh) {
         var i = vh - totalHeight;
-        var i2 = i / 2;
+        var i2 = Math.floor(i / 2);
         main!.style.paddingTop = (i2.toString() + "px");
         main!.style.paddingBottom = (i2.toString() + "px");
 
