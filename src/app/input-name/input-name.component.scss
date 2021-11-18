@@ -1,18 +1,24 @@
 form {
-    text-align: left;
-    width: 80%;
-    margin: auto;
- }
+  text-align: left;
+  width: 80%;
+  margin: auto;
+}
+
+label{
+  font-weight: bold;
+  color: #0c6d7c;
+}
+
 fa-icon{
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 .btn-primary{
-    border-radius: 1.5em;
-    background-color: #0c6d7c;
-    color: white;
+  border-radius: 1.5em;
+  background-color: #0c6d7c;
+  color: white;
 }
 
 .button {
-    text-align: right;
+  text-align: right;
 }
