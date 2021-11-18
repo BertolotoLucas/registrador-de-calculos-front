@@ -9,6 +9,17 @@ label{
   color: #0c6d7c;
 }
 
+.form-control{
+  border: 1px solid #0c6d7c;
+  color: #0c6d7c;
+}
+
+.form-control:focus {
+    color: #0c6d7c;
+    border-color: black; 
+    box-shadow: 0 0 0 0.1rem rgb(0 0 0 / 75%);
+}
+
 small{
   color: #0c6d7c;
   font-style: italic;
