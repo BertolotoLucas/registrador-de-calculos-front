@@ -1,7 +1,17 @@
 form {
     text-align: left;
-    padding: 2em 0em 2em 0em;
+    width: 80%;
+    margin: auto;
  }
+fa-icon{
+    font-size: 1.5em;
+}
+
+.btn-primary{
+    border-radius: 1.5em;
+    background-color: #0c6d7c;
+    color: white;
+}
 
 .button {
     text-align: right;

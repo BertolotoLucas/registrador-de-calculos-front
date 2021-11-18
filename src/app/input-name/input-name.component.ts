@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OrganizerService } from '../utils/organizer.service';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-input-name',
   templateUrl: './input-name.component.html',
@@ -9,6 +10,7 @@ import { OrganizerService } from '../utils/organizer.service';
 export class InputNameComponent implements OnInit {
   public name: string | undefined;
   public page = "calculator";
+  public faArrowRight = faArrowRight;
   
   constructor(private router:Router,private util:OrganizerService) {}
   ngOnInit(): void {
