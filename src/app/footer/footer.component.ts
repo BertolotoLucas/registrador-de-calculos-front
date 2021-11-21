@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { faAngular } from '@fortawesome/free-brands-svg-icons';
-import { faBootstrap } from '@fortawesome/free-brands-svg-icons';
-import { faLeaf } from '@fortawesome/free-solid-svg-icons';
-import { faEnvira } from '@fortawesome/free-brands-svg-icons';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faAngular, faBootstrap, faEnvira, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope, faLeaf } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-footer',

@@ -1,11 +1,12 @@
 import { AfterViewChecked, Component, OnInit } from '@angular/core';
-import { Calculo } from '../model/calculo';
-import { CalculoService } from '../service/calculo.service';
-import { OrganizerService } from '../utils/organizer.service';
 import { Router } from '@angular/router';
-import { NameCheckerService } from '../utils/name-checker.service';
-import { PageCalculo } from '../model/page-calculo';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
+import { Calculo } from '../model/calculo';
+import { PageCalculo } from '../model/page-calculo';
+import { CalculoService } from '../service/calculo.service';
+import { NameCheckerService } from '../utils/name-checker.service';
+import { OrganizerService } from '../utils/organizer.service';
 
 @Component({
   selector: 'app-calculations',

@@ -1,4 +1,4 @@
-import { Calculo } from "./calculo";
+import { Calculo } from './calculo';
 
 export class PageCalculo {
     totalItems!: number;

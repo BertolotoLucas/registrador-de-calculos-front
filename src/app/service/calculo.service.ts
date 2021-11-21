@@ -1,10 +1,11 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
 import { Calculo } from '../model/calculo';
-import { Observable,of } from 'rxjs';
-import { catchError, tap, map} from 'rxjs/operators'
-import { HttpClient } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
 import { PageCalculo } from '../model/page-calculo';
+
 @Injectable({
   providedIn: 'root'
 })

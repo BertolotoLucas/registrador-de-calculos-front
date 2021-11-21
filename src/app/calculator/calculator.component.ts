@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Calculo } from '../model/calculo';
-import { CalculoService } from '../service/calculo.service';
 import { Router } from '@angular/router';
 import { faList } from '@fortawesome/free-solid-svg-icons';
-import { OrganizerService } from '../utils/organizer.service';
+
+import { Calculo } from '../model/calculo';
+import { CalculoService } from '../service/calculo.service';
 import { NameCheckerService } from '../utils/name-checker.service';
+import { OrganizerService } from '../utils/organizer.service';
+
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OrganizerService } from '../utils/organizer.service';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+
+import { OrganizerService } from '../utils/organizer.service';
+
 @Component({
   selector: 'app-input-name',
   templateUrl: './input-name.component.html',
