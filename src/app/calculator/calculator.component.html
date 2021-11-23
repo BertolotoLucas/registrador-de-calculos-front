@@ -85,9 +85,15 @@
       </form>
     </div>
   </div>
-  <div class="container-btn-light">    
-    <button  title="Ver todos os calculos realizados com essa calculadora!" type="button" class="btn btn-light " (click) = "goToList()">
-      <fa-icon [icon]= "faList"></fa-icon>
-    </button>
+  <div class="d-flex container-btn-light">
+    <div class="mr-auto">
+      <button class="btn btn-primary" (click)="goToInputName()"><fa-icon [icon]="faArrowLeft"></fa-icon></button>
+    </div>
+    <div>    
+      <button  title="Ver todos os calculos realizados com essa calculadora!" type="button" class="btn btn-primary" (click) = "goToList()">
+        <fa-icon [icon]= "faList"></fa-icon>
+      </button>
+    </div>
   </div>
+  
 

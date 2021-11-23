@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faList } from '@fortawesome/free-solid-svg-icons';
 
 import { Calculo } from '../model/calculo';
@@ -13,7 +14,8 @@ import { OrganizerService } from '../utils/organizer.service';
   styleUrls: ['./calculator.component.scss']
 })
 export class CalculatorComponent implements OnInit {
-  public nextPage = "calculations";
+  faArrowLeft = faArrowLeft;
+  nextPage = "calculations";
   faList = faList;
   name = '';
   screenValue = '0';
@@ -135,6 +137,10 @@ export class CalculatorComponent implements OnInit {
 
   public goToList(){
     this.router.navigate([this.nextPage], {state: {data: this.name}});
+  }
+
+  public goToInputName(){
+    this.router.navigate(["index"], {state: {data: this.name}});
   }
 
 }

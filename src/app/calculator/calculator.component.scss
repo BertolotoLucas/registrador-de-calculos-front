@@ -132,22 +132,33 @@ label{
 
 .container-btn-light{
   margin: auto;
+  margin-top: 0.75em;
   width: 232px;
   text-align: right;
   padding-bottom: 15px;
 }
 
-.btn-light{
-  margin-left: 0em;
-  margin-top: 0.75em;
+fa-icon{
+  font-size: 1.75em;
+}
+
+.button {
+  text-align: right;
+}
+
+.btn-primary{
+  border-radius: 2em;
+  padding-top: 0.35em;
+  padding-bottom: 0.35em;
+  padding-left: 0.9em;
+  padding-right: 0.9em;
   background-color: #0c6d7c;
   border-color: #0c6d7c;
   color: white;
-  font-size: 1.5em;
-  border-radius: 25px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
 }
-.btn-light:hover{
+
+.btn-primary:hover:not([disabled]){
   background-color: #1194a8;
   border-color: #1194a8;
 }
