@@ -8,7 +8,7 @@ import { InputNameComponent } from './input-name/input-name.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/index', pathMatch: 'full' },
-  {path:'index', component: InputNameComponent},
+  {path: 'index', component: InputNameComponent},
   {path: 'calculator', component: CalculatorComponent},
   {path: 'calculations', component: CalculationsComponent}
 ];
