@@ -1,5 +1,6 @@
 import { AfterViewChecked, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import { Calculo } from '../model/calculo';
@@ -14,6 +15,7 @@ import { OrganizerService } from '../utils/organizer.service';
   styleUrls: ['./calculations.component.scss']
 })
 export class CalculationsComponent implements OnInit, AfterViewChecked{
+  faArrowLeft = faArrowLeft;
   faSearch = faSearch;
   name = '';
   calculations: Calculo[] = [];
@@ -27,7 +29,7 @@ export class CalculationsComponent implements OnInit, AfterViewChecked{
 
   ngOnInit():void {
     this.name = history.state.data;
-    this.nameChecker.check(this.name,this.router);
+    //this.nameChecker.check(this.name,this.router);
     this.getCalculos();  
     this.util.organizeTheBlocks();
   }

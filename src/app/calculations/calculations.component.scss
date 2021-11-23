@@ -59,6 +59,30 @@ th{
    display: inline-block;
 }
 
+fa-icon{
+  font-size: 1.5em;
+}
+
+.btn-primary{
+  border-radius: 2em;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  background-color: #0c6d7c;
+  border-color: #0c6d7c;
+  color: white;
+}
+  
+.btn-primary:hover{
+  background-color: #1194a8;
+  border-color: #1194a8;
+}
+  
+.button {
+  text-align: right;
+}
+
 .pagination{
     padding-bottom: 5px;
     margin-bottom: 0px;

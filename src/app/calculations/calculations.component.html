@@ -29,19 +29,26 @@
   </div>
   
   <nav id="nav-pag" *ngIf="calculations.length > 0">
-    <ul class="pagination justify-content-end">
-      <li *ngIf="(actualPage-3)>=0" class="page-item"><a class="page-link" (click)="getPage(0)">Primeira</a></li>
-
-      <li *ngIf="(actualPage-2)>=0" class="page-item"><a class="page-link" (click)="getPage(actualPage-2)">{{actualPage-1}}</a></li>
-      <li *ngIf="(actualPage-1)>=0" class="page-item"><a class="page-link" (click)="getPage(actualPage-1)">{{actualPage}}</a></li>
-
-      <li *ngIf="actualPage>=0" class="page-item active"><a class="page-link">{{actualPage+1}}</a></li>
-
-      <li *ngIf="(actualPage+1)<lastPage" class="page-item"><a class="page-link" (click)="getPage(actualPage+1)">{{actualPage+2}}</a></li>
-      <li *ngIf="(actualPage+2)<lastPage" class="page-item"><a class="page-link" (click)="getPage(actualPage+2)">{{actualPage+3}}</a></li>
-
-      <li *ngIf="actualPage+3<lastPage" class="page-item"><a class="page-link" (click)="getPage(lastPage-1)">Última</a></li>
-    </ul>
+    <div class="d-flex">
+      <div class="mr-auto">
+        <button class="btn btn-primary" (click)="returnToCalculator()"><fa-icon [icon]="faArrowLeft"></fa-icon></button>
+      </div>
+      <div>
+        <ul class="pagination">
+          <li *ngIf="(actualPage-3)>=0" class="page-item"><a class="page-link" (click)="getPage(0)">Primeira</a></li>
+    
+          <li *ngIf="(actualPage-2)>=0" class="page-item"><a class="page-link" (click)="getPage(actualPage-2)">{{actualPage-1}}</a></li>
+          <li *ngIf="(actualPage-1)>=0" class="page-item"><a class="page-link" (click)="getPage(actualPage-1)">{{actualPage}}</a></li>
+    
+          <li *ngIf="actualPage>=0" class="page-item active"><a class="page-link">{{actualPage+1}}</a></li>
+    
+          <li *ngIf="(actualPage+1)<lastPage" class="page-item"><a class="page-link" (click)="getPage(actualPage+1)">{{actualPage+2}}</a></li>
+          <li *ngIf="(actualPage+2)<lastPage" class="page-item"><a class="page-link" (click)="getPage(actualPage+2)">{{actualPage+3}}</a></li>
+    
+          <li *ngIf="actualPage+3<lastPage" class="page-item"><a class="page-link" (click)="getPage(lastPage-1)">Última</a></li>
+        </ul>
+      </div>
+    </div>
   </nav>
 
   <div *ngIf="calculations.length == 0 && !isFinding">
