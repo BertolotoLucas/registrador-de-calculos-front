@@ -16,6 +16,8 @@ export class InputNameComponent implements OnInit {
   
   constructor(private router:Router,private util:OrganizerService) {}
   ngOnInit(): void {
+    if (history.state.data)
+      this.name = history.state.data;
   }  
 
   ngAfterViewInit(): void {
