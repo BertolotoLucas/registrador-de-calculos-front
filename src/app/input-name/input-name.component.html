@@ -4,7 +4,7 @@
     <input [(ngModel)]="name" name="name" type="text" class="form-control" id="inputName" aria-describedby="nameHelp" placeholder="José Batista" required>
     <small id="nameHelp" class="form-text text-muted">É apenas para registrar seus cálculos, não se preocupe.</small>
   </div>
-  <div class="button">
+  <div class="text-right">
     <button [disabled]="!name" type="submit" class="btn btn-primary" (click)="registerName(name)"><fa-icon [icon]="faArrowRight"></fa-icon></button>
   </div>
 </form>

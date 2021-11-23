@@ -29,7 +29,7 @@ export class CalculationsComponent implements OnInit, AfterViewChecked{
 
   ngOnInit():void {
     this.name = history.state.data;
-    //this.nameChecker.check(this.name,this.router);
+    this.nameChecker.check(this.name,this.router);
     this.getCalculos();  
     this.util.organizeTheBlocks();
   }
