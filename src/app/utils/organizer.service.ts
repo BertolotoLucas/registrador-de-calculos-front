@@ -36,11 +36,11 @@ export class OrganizerService {
 
   public organizePagination(){
     var tableHeight = document.querySelector(".table-responsive")?.clientHeight;
-    console.log("Altura da tabela: "+tableHeight);
+    //console.log("Altura da tabela: "+tableHeight);
     if(tableHeight)
     if (tableHeight<=537) {
       var paddingTop = 537 - Number(tableHeight) ;
-      console.log("Padding top que sera inserido: "+ paddingTop);
+      //console.log("Padding top que sera inserido: "+ paddingTop);
       let pagination = document.getElementById("nav-pag");
       if(pagination)
         pagination.style.paddingTop = paddingTop+"px";
