@@ -1,4 +1,8 @@
 .welcome{
+  margin-top: 0;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 0;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   border-style: solid;
@@ -10,7 +14,6 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   font-family: 'Delius', cursive;
   width: 70%;
-  margin: 0 auto;
 }
 
 h5{
@@ -148,10 +151,6 @@ fa-icon{
 
 .btn-primary{
   border-radius: 2em;
-  padding-top: 7.5px;
-  padding-bottom: 7.5px;
-  padding-left: 0.75em;
-  padding-right: 0.75em;
   background-color: #0c6d7c;
   border-color: #0c6d7c;
   color: white;
@@ -161,4 +160,18 @@ fa-icon{
 .btn-primary:hover:not([disabled]){
   background-color: #1194a8;
   border-color: #1194a8;
+}
+
+.btn-return{
+  padding-top: 6.5px;
+  padding-bottom: 6.5px;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+}
+
+.btn-list{
+  padding-top: 7.5px;
+  padding-bottom: 7.5px;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
 }
