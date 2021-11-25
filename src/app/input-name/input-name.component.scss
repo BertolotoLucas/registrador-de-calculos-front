@@ -7,6 +7,7 @@ form {
 label{
   font-weight: bold;
   color: #0c6d7c;
+  margin-top: 1em;
 }
 
 .form-control{
@@ -39,6 +40,7 @@ fa-icon{
   border-color: #0c6d7c;
   color: white;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 1em;
 }
 
 .btn-primary:hover:not([disabled]){
