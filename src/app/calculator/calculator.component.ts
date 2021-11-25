@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faList } from '@fortawesome/free-solid-svg-icons';
@@ -35,18 +35,34 @@ export class CalculatorComponent implements OnInit {
     setTimeout(() => this.util.organizeTheBlocks(), 0.001);
   }
 
-  addDigtToScreen(event: Event){
+  addDigtToScreenByEvent(event: Event){
     this.getButtonValue(event);
-    if (this.canReplace){
-      this.screenValue='0';
-      this.canReplace=false;
-    }
-    if (this.screenValue==='0'){
-      this.screenValue='';
-      if (this.buttonValue==='00')
+    this.setScreenValueByBtnValue();
+  }
+
+  private setScreenValueByBtnValue() {
+    this.verifyReplaceable();
+    this.verifyLeadingZeros();
+    this.concatDigitsValueOnScreen();
+  }
+
+  private concatDigitsValueOnScreen() {
+    this.screenValue = this.screenValue.concat(this.buttonValue);
+  }
+
+  private verifyLeadingZeros() {
+    if (this.screenValue === '0') {
+      this.screenValue = '';
+      if (this.buttonValue === '00')
         this.buttonValue = '0';
     }
-    this.screenValue = this.screenValue.concat(this.buttonValue);
+  }
+
+  private verifyReplaceable() {
+    if (this.canReplace) {
+      this.screenValue = '0';
+      this.canReplace = false;
+    }
   }
 
   convertNumberToPorcent(){
@@ -82,34 +98,47 @@ export class CalculatorComponent implements OnInit {
     }
   }
   
-  addOperation(event:Event){
-    if(this.screenValue)
-    if(!isNaN(Number(this.screenValue))){
-      this.lastNumber = this.screenValue;
+  addOperationByEvent(event:Event){
+    if(this.verifyScreenValue()){
       this.getButtonValue(event);
-      switch(this.buttonValue) { 
-        case '+': { 
-          this.operation = "plus"; 
-          break; 
-        } 
-        case '-': { 
-          this.operation = "minus"; 
-          break; 
-        }
-        case '*': {
-          this.operation = "multiply";
-          break;
-        }
-        case '/': {
-          this.operation = "divide";
-          break;
-        } 
-        default: { 
-          this.operation = ''; 
-          break; 
-        } 
-      }
+      this.getTheLastValueOfScreen();
+      this.setOperationByBtnValue();
       this.canReplace=true;
+    }
+  }
+
+  private verifyScreenValue() {
+    if (this.screenValue)
+      return !isNaN(Number(this.screenValue));
+    else return false;
+  }
+
+  private getTheLastValueOfScreen() {
+    this.lastNumber = this.screenValue;
+  }
+
+  private setOperationByBtnValue() {
+    switch (this.buttonValue) {
+      case '+': {
+        this.operation = "plus";
+        break;
+      }
+      case '-': {
+        this.operation = "minus";
+        break;
+      }
+      case '*': {
+        this.operation = "multiply";
+        break;
+      }
+      case '/': {
+        this.operation = "divide";
+        break;
+      }
+      default: {
+        this.operation = '';
+        break;
+      }
     }
   }
 
@@ -135,6 +164,10 @@ export class CalculatorComponent implements OnInit {
     this.buttonValue = (event.target as HTMLInputElement).textContent || '';
   }
 
+  private setButtonValue(key: string) {
+    this.buttonValue = key;
+  }
+
   public goToList(){
     this.router.navigate([this.nextPage], {state: {data: this.name}});
   }
@@ -143,4 +176,35 @@ export class CalculatorComponent implements OnInit {
     this.router.navigate(["index"], {state: {data: this.name}});
   }
 
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) { 
+    const key = event.key;
+    if (key == "0" || key == "1" || key == "2" || key == "3" || key == "4" || key == "5" || key == "6" || key == "7" || key == "8" || key == "9") {
+      this.addDigtToScreenByKeyPressed(key);
+    } else if (key == "/" || key == "*" || key == "-" || key == "+") {
+      this.addOperationByKeyPressed(key);
+    } else if (key == ".") {
+      this.addDotToScreen();
+    } else if (key == "%") {
+      this.convertNumberToPorcent();
+    } else if (key == "Backspace") {
+      this.clearTheScreen();
+    } else if (key == "Enter") {
+      this.getResult();
+    }
+  }
+
+  private addOperationByKeyPressed(key: string) {
+    if (this.verifyScreenValue()) {
+      this.setButtonValue(key);
+      this.getTheLastValueOfScreen();
+      this.setOperationByBtnValue();
+      this.canReplace = true;
+    }
+  }
+
+  private addDigtToScreenByKeyPressed(key: string) {
+    this.setButtonValue(key);
+    this.setScreenValueByBtnValue();
+  }
 }
