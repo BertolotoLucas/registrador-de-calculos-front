@@ -43,7 +43,7 @@ body {margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
 @import '~bootstrap/scss/bootstrap';
 
 body::after {
-  background:  url("app/img/background.png");
+  background:  url("assets/img/background.png");
   content: "";
   opacity: 0.40;
   position: absolute;
