@@ -23,12 +23,22 @@ export class CalculatorComponent implements OnInit {
   operation = '';
   lastNumber = '';
   canReplace = false;
+  btnSound: HTMLAudioElement | undefined;
+  btnResultSound: HTMLAudioElement | undefined; 
 
   constructor(private util:OrganizerService, private calculoService:CalculoService, private router:Router, private nameChecker:NameCheckerService) { }
 
   ngOnInit(): void {
     this.name = history.state.data;
     this.nameChecker.check(this.name,this.router);
+    this.getSounds();
+  }
+
+  private getSounds() {
+    this.btnSound = new Audio();
+    this.btnSound.src = "../../assets/sound/button-sound.mp3";
+    this.btnResultSound = new Audio();
+    this.btnResultSound.src = "../../assets/sound/result-sound.mp3";
   }
 
   ngAfterViewInit(): void {
@@ -44,6 +54,11 @@ export class CalculatorComponent implements OnInit {
     this.verifyReplaceable();
     this.verifyLeadingZeros();
     this.concatDigitsValueOnScreen();
+    this.playBtnSound();
+  }
+
+  private playBtnSound() {
+    this.btnSound?.play();
   }
 
   private concatDigitsValueOnScreen() {
@@ -73,6 +88,7 @@ export class CalculatorComponent implements OnInit {
         this.screenValue = i.toString();
       }
     }
+    this.playBtnSound();
   }
 
   clearTheScreen() {
@@ -80,6 +96,7 @@ export class CalculatorComponent implements OnInit {
       this.screenValue = '0';
       this.canReplace = true;
     }
+    this.playBtnSound();
   }
 
   addDotToScreen(){
@@ -91,10 +108,12 @@ export class CalculatorComponent implements OnInit {
           this.screenValue = this.screenValue.concat('.');
         }
         this.canReplace = false;
+        this.playBtnSound();
       }
     } else{ 
       this.screenValue = this.screenValue.concat('0.');
       this.canReplace = false;
+      this.playBtnSound();
     }
   }
   
@@ -140,6 +159,7 @@ export class CalculatorComponent implements OnInit {
         break;
       }
     }
+    this.playBtnSound();
   }
 
   async getResult(){
@@ -151,13 +171,21 @@ export class CalculatorComponent implements OnInit {
       this.screenValue = calculo.getresultado()?.toString()||"Error";
       this.clearCalculator();
       this.canReplace=true;
+      if (!(this.screenValue == "Error")) {
+        this.playResultBtnSound();
+      }
     }
   }
   
+  private playResultBtnSound() {
+    this.btnResultSound?.play();
+  }
+
   private clearCalculator() {
     this.buttonValue = '';
     this.operation = '';
     this.lastNumber = '';
+    this.playBtnSound();
   }
 
   private getButtonValue(event: Event) {
