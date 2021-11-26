@@ -25,6 +25,7 @@ export class CalculatorComponent implements OnInit {
   canReplace = false;
   btnSound: HTMLAudioElement | undefined;
   btnResultSound: HTMLAudioElement | undefined; 
+  btnErrorSound: HTMLAudioElement | undefined;
 
   constructor(private util:OrganizerService, private calculoService:CalculoService, private router:Router, private nameChecker:NameCheckerService) { }
 
@@ -39,6 +40,8 @@ export class CalculatorComponent implements OnInit {
     this.btnSound.src = "../../assets/sound/button-sound.mp3";
     this.btnResultSound = new Audio();
     this.btnResultSound.src = "../../assets/sound/result-sound.mp3";
+    this.btnErrorSound = new Audio();
+    this.btnErrorSound.src = "../../assets/sound/error-sound.mp3";
   }
 
   ngAfterViewInit(): void {
@@ -173,8 +176,14 @@ export class CalculatorComponent implements OnInit {
       this.canReplace=true;
       if (!(this.screenValue == "Error")) {
         this.playResultBtnSound();
+      } else {
+        this.playBtnErrorSound();
       }
     }
+  }
+  
+  private playBtnErrorSound() {
+    this.btnErrorSound?.play();
   }
   
   private playResultBtnSound() {
