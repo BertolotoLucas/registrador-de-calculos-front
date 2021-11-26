@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { CalculoService } from '../service/calculo.service';
 
 import { OrganizerService } from '../utils/organizer.service';
 
@@ -14,8 +15,9 @@ export class InputNameComponent implements OnInit {
   public page = "calculator";
   public faArrowRight = faArrowRight;
   
-  constructor(private router:Router,private util:OrganizerService) {}
+  constructor(private router:Router,private util:OrganizerService, private CalculoService:CalculoService) {}
   ngOnInit(): void {
+    this.CalculoService.getCalculos().toPromise().then();  //just to wakeup the server
     if (history.state.data)
       this.name = history.state.data;
   }  
