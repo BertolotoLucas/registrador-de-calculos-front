@@ -37,11 +37,11 @@ export class CalculatorComponent implements OnInit {
 
   private getSounds() {
     this.btnSound = new Audio();
-    this.btnSound.src = "/assets/sound/button-sound.mp3";
+    this.btnSound.src = "assets/sound/button-sound.mp3";
     this.btnResultSound = new Audio();
-    this.btnResultSound.src = "/assets/sound/result-sound.mp3";
+    this.btnResultSound.src = "assets/sound/result-sound.mp3";
     this.btnErrorSound = new Audio();
-    this.btnErrorSound.src = "/assets/sound/error-sound.mp3";
+    this.btnErrorSound.src = "assets/sound/error-sound.mp3";
   }
 
   ngAfterViewInit(): void {
