@@ -20,6 +20,8 @@ export class InputNameComponent implements OnInit {
     this.CalculoService.getCalculos().toPromise().then();  //just to wakeup the server
     if (history.state.data)
       this.name = history.state.data;
+    this.util.organizeTheBlocks();
+    setTimeout(() => this.util.organizeTheBlocks(), 2); //just to ensure 
   }  
 
   ngAfterViewInit(): void {
